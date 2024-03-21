@@ -1,0 +1,81 @@
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: lightgoldenrodyellow;
+    margin: 0;
+}
+
+button
+{
+    width: 75px;
+    height: 75px;
+    background-color: white;
+    border: seagreen solid 5px;
+    gap: 5px;
+    flex: 1;
+}
+
+.header
+{
+    background-color: goldenrod;
+    font-size: 48px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.calculator
+{
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    width: auto;
+    height: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.display
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: gray;
+    width: 100%;
+    height: auto;
+}
+
+.numbers
+{
+    display: flex;
+    justify-content: space-around;
+    margin-left: auto;
+    width: 100%;
+    font-size: 48px;
+    color: black;
+    outline: yellowgreen solid 5px;
+}
+
+.main
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 5px;
+    background-color: black;
+}
+
+.keypad, .operators
+{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100%;
+}
