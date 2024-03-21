@@ -10,12 +10,13 @@ body
 
 button
 {
-    width: 75px;
-    height: 75px;
-    background-color: white;
-    border: seagreen solid 5px;
+    width: 25%;
+    height: 25%;
+    background-color: black;
+    color: white;
+    font-size: 36px;
+    border: yellowgreen solid 3px;
     gap: 5px;
-    flex: 1;
 }
 
 .header
@@ -72,10 +73,11 @@ button
     background-color: black;
 }
 
-.keypad, .operators
+.keypad
 {
     display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    height: 100%;
+    flex-direction: row;
+    height: 600px;
+    width: 400px;
+    flex-wrap: wrap;
 }
