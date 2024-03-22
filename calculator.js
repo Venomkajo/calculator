@@ -3,10 +3,11 @@ var number2 = '';
 var operator = '';
 var currentNumber = '';
 var equal = 0;
+var operatorCopy = '';
 
 
-fullKeypad = document.querySelectorAll('button');
-numberDisplay = document.querySelector('.numbers');
+const fullKeypad = document.querySelectorAll('button');
+const numberDisplay = document.querySelector('.numbers');
 
 fullKeypad.forEach(key => {
     key.addEventListener('click', function(){
@@ -15,6 +16,10 @@ fullKeypad.forEach(key => {
             equal = 0;
             let result = operate();
             clear();
+            if (operatorCopy){
+                operator = operatorCopy;
+                operatorCopy = '';
+            }
             numberDisplay.innerText = result;
             number1 = result;
         }else if (!operator){
@@ -49,7 +54,12 @@ function operate(){
 
 function updateInput(input){
     if (input === '/' || input === '*' || input === '+' || input === '-'){
-        operator = input;
+        if (!operator && !number2){
+            operator = input;
+        }else{
+            equal = 1;
+            operatorCopy = input;
+        }
     }
     else if (input === '='){
         equal = 1;

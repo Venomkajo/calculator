@@ -15,7 +15,7 @@ button
     background-color: black;
     color: white;
     font-size: 36px;
-    border: yellowgreen solid 3px;
+    border: yellowgreen solid 5px;
     gap: 5px;
 }
 
@@ -82,4 +82,5 @@ button
     height: 600px;
     width: 400px;
     flex-wrap: wrap;
+    padding: 20px;
 }
