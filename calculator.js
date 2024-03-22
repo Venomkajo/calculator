@@ -29,11 +29,8 @@ function operate(){
 
     let num1 = Number(number1);
     let num2 = Number(number2);
-
-    if (operator === 'C'){
-        clear();
-    }    
-    else if (operator === '+'){
+  
+    if (operator === '+'){
         return num1 + num2;
     }
     else if (operator === '-'){
@@ -51,11 +48,14 @@ function operate(){
 }
 
 function updateInput(input){
-    if (input === '/' || input === '*' || input === '+' || input === '-' || input === 'C'){
+    if (input === '/' || input === '*' || input === '+' || input === '-'){
         operator = input;
     }
     else if (input === '='){
         equal = 1;
+    }
+    else if (input === 'C'){
+        clear();
     }
     else if (!operator){
         number1 += input;
@@ -70,4 +70,5 @@ function clear(){
     number2 = '';
     currentNumber = '';
     operator = '';
+    equal = 0;
 }
