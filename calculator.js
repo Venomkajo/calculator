@@ -31,7 +31,7 @@ fullKeypad.forEach(key => {
         }else if (!operator){
             numberDisplay.innerText = operator + '  ' + number1;
         }else{
-            numberDisplay.innerText = operator + '  ' + number2;
+            numberDisplay.innerText = number1 + '   ' + operator + '  ' + number2;
         }}
     );
 });
@@ -78,12 +78,24 @@ function updateInput(input){
         clear();
     }
     else if (!operator){
-        number1 += input;
+        if (input === 'UNDO'){
+            if (number1.length > 0){
+                number1 = number1.slice(0, -1);
+            }
+        }else{
+            number1 += input;
+        }
     }
     else{
-        number2 += input;
+        if (input === 'UNDO'){
+            if (number2.length > 0){
+                number2 = number2.slice(0, -1);
+            }
+        }else{
+            number2 += input;
+        }
     }
-}
+    }
 
 function clear(){
     number1 = '';

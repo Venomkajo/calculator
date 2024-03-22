@@ -12,6 +12,8 @@ button
 {
     width: 25%;
     height: 25%;
+    min-width: 125px;
+    min-height: 100px;
     background-color: black;
     color: white;
     font-size: 36px;
@@ -83,6 +85,7 @@ button
     width: 400px;
     flex-wrap: wrap;
     padding: 20px;
+    flex: 1;
 }
 
 .operation
