@@ -26,7 +26,7 @@ fullKeypad.forEach(key => {
                 operator = operatorCopy;
                 operatorCopy = '';
             }
-            numberDisplay.innerText = result;
+            numberDisplay.innerText = result + '    ' + operator;
             number1 = result;
         }else if (!operator){
             numberDisplay.innerText = operator + '  ' + number1;
@@ -63,7 +63,7 @@ function operate(){
 }
 
 function updateInput(input){
-    if (input === '/' || input === '*' || input === '+' || input === '-'){
+    if ((input === '/' || input === '*' || input === '+' || input === '-') && number1){
         if (!operator && !number2){
             operator = input;
         }else{
@@ -77,7 +77,7 @@ function updateInput(input){
     else if (input === 'C'){
         clear();
     }
-    else if (!operator){
+    else if (!operator && !isNaN(Number(input))){
         if (input === 'UNDO'){
             if (number1.length > 0){
                 number1 = number1.slice(0, -1);
@@ -86,7 +86,7 @@ function updateInput(input){
             number1 += input;
         }
     }
-    else{
+    else if (!isNaN(Number(input))){
         if (input === 'UNDO'){
             if (number2.length > 0){
                 number2 = number2.slice(0, -1);

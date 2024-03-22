@@ -93,7 +93,7 @@ button
     background-color: darkred;
 }
 
-.clear
+.clear, .undo
 {
     background-color: blue;
 }
