@@ -15,6 +15,12 @@ fullKeypad.forEach(key => {
         if (equal === 1){
             equal = 0;
             let result = operate();
+            if (!result){
+                return;
+            }
+            if (result % !0){
+                result = result.toFixed(2);
+            }
             clear();
             if (operatorCopy){
                 operator = operatorCopy;
@@ -23,14 +29,18 @@ fullKeypad.forEach(key => {
             numberDisplay.innerText = result;
             number1 = result;
         }else if (!operator){
-            numberDisplay.innerText = number1;
+            numberDisplay.innerText = operator + '  ' + number1;
         }else{
-            numberDisplay.innerText = number2;
+            numberDisplay.innerText = operator + '  ' + number2;
         }}
     );
 });
 
 function operate(){
+
+    if (!number1 || !number2){
+        return '';
+    }
 
     let num1 = Number(number1);
     let num2 = Number(number2);

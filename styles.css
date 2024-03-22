@@ -4,7 +4,7 @@ body
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: lightgoldenrodyellow;
+    background-color: lightsteelblue;
     margin: 0;
 }
 
@@ -83,4 +83,19 @@ button
     width: 400px;
     flex-wrap: wrap;
     padding: 20px;
+}
+
+.operation
+{
+    background-color: darkred;
+}
+
+.clear
+{
+    background-color: blue;
+}
+
+.equal
+{
+    background-color: darkgreen;
 }
