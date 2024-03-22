@@ -59,6 +59,7 @@ button
     justify-content: space-around;
     margin-left: auto;
     width: 100%;
+    height: 100%;
     font-size: 48px;
     color: black;
     outline: yellowgreen solid 5px;
