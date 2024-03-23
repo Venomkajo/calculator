@@ -98,7 +98,12 @@ button
     background-color: blue;
 }
 
-.equal, .period
+.equal, .period, .negative
 {
     background-color: darkgreen;
+}
+
+button:disabled{
+    background-color: black;
+    color: black;
 }

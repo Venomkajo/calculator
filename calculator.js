@@ -65,7 +65,14 @@ function operate(){
 }
 
 function updateInput(input){
-    if ((input === '/' || input === '*' || input === '+' || input === '-') && number1){
+    if (input === 'UNDO'){
+        if (number1.length > 0 && !operator){
+            number1 = number1.slice(0, -1);
+        }else if (number2.length > 0 && operator){
+            number2 = number2.slice(0, -1);
+        }
+    }
+    else if ((input === '/' || input === '*' || input === '+' || input === '-') && number1){
         if (!operator && !number2){
             operator = input;
         }else{
@@ -88,23 +95,11 @@ function updateInput(input){
         }
     }
     else if (!operator && !isNaN(Number(input))){
-        if (input === 'UNDO'){
-            if (number1.length > 0){
-                number1 = number1.slice(0, -1);
-            }
-        }else{
             number1 += input;
         }
-    }
     else if (!isNaN(Number(input))){
-        if (input === 'UNDO'){
-            if (number2.length > 0){
-                number2 = number2.slice(0, -1);
-            }
-        }else{
             number2 += input;
         }
-    }
     }
 
 function clear(){
