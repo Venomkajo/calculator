@@ -72,6 +72,20 @@ function updateInput(input){
             number2 = number2.slice(0, -1);
         }
     }
+    else if (input === 'negative'){
+        if (isNegative() === 'number1'){
+            number1 = number1.slice(1);
+        }else if (isNegative() === 'number2'){
+            number2 = number2.slice(1);
+        }else if (isNegative() === false){
+            if (!operator){
+                number1 = '-' + number1;
+            }else
+            {
+                number2 = '-' + number2;
+            }
+        }
+    }
     else if ((input === '/' || input === '*' || input === '+' || input === '-') && number1){
         if (!operator && !number2){
             operator = input;
@@ -115,5 +129,15 @@ function checkForPeriod(){
         periodButton.disabled = true;
     }else{
         periodButton.disabled = false;
+    }
+}
+
+function isNegative(){
+    if ((!operator && number1.includes('-'))){
+        return 'number1';
+    }else if (number2.includes('-') && operator){
+        return 'number2';
+    }else{
+        return false;
     }
 }
