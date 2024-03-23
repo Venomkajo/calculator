@@ -8,10 +8,12 @@ var operatorCopy = '';
 
 const fullKeypad = document.querySelectorAll('button');
 const numberDisplay = document.querySelector('.numbers');
+const periodButton = document.getElementById('period');
 
 fullKeypad.forEach(key => {
     key.addEventListener('click', function(){
         updateInput(key.value);
+        checkForPeriod();
         if (equal === 1){
             equal = 0;
             let result = operate();
@@ -77,6 +79,14 @@ function updateInput(input){
     else if (input === 'C'){
         clear();
     }
+    else if(input === '.'){
+        if (!operator && number1){
+            number1 += input;
+        }else if (operator && number2)
+        {
+            number2 += input;
+        }
+    }
     else if (!operator && !isNaN(Number(input))){
         if (input === 'UNDO'){
             if (number1.length > 0){
@@ -103,4 +113,12 @@ function clear(){
     currentNumber = '';
     operator = '';
     equal = 0;
+}
+
+function checkForPeriod(){
+    if ((!operator && number1.includes('.')) || (number2.includes('.') && operator)){
+        periodButton.disabled = true;
+    }else{
+        periodButton.disabled = false;
+    }
 }

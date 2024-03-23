@@ -10,9 +10,9 @@ body
 
 button
 {
-    width: 25%;
-    height: 25%;
-    min-width: 125px;
+    width: 20%;
+    height: 20%;
+    min-width: 100px;
     min-height: 100px;
     background-color: black;
     color: white;
@@ -81,8 +81,8 @@ button
 {
     display: flex;
     flex-direction: row;
-    height: 600px;
-    width: 400px;
+    height: 400px;
+    width: 600px;
     flex-wrap: wrap;
     padding: 20px;
     flex: 1;
@@ -98,7 +98,7 @@ button
     background-color: blue;
 }
 
-.equal
+.equal, .period
 {
     background-color: darkgreen;
 }
