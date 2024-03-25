@@ -132,7 +132,7 @@ function clear(){
 
 // check if period already exists in the current number
 function checkForPeriod(){
-    if ((!operator && number1.indexOf('.')) !== -1 || (number2.indexOf('.') !== -1 && operator)){
+    if (!operator && number1.indexOf('.') !== -1 || (number2.indexOf('.') !== -1 && operator)){
         periodButton.disabled = true;
     }else{
         periodButton.disabled = false;
