@@ -2,7 +2,6 @@
 var number1 = '';
 var number2 = '';
 var operator = '';
-var currentNumber = '';
 var equal = 0;
 var operatorCopy = '';
 
@@ -125,9 +124,8 @@ function updateInput(input){
 function clear(){
     number1 = '';
     number2 = '';
-    currentNumber = '';
     operator = '';
-    equal = 0;
+    operatorCopy = '';
 }
 
 // check if period already exists in the current number
