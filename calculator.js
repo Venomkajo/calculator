@@ -1,3 +1,4 @@
+// declare global variables
 var number1 = '';
 var number2 = '';
 var operator = '';
@@ -5,11 +6,12 @@ var currentNumber = '';
 var equal = 0;
 var operatorCopy = '';
 
-
+// get website data
 const fullKeypad = document.querySelectorAll('button');
 const numberDisplay = document.querySelector('.numbers');
 const periodButton = document.getElementById('period');
 
+// for every button press do this
 fullKeypad.forEach(key => {
     key.addEventListener('click', function(){
         updateInput(key.value);
@@ -17,7 +19,7 @@ fullKeypad.forEach(key => {
         if (equal === 1){
             equal = 0;
             let result = operate();
-            if (!result){
+            if (!result && result !== 0){
                 return;
             }
             if (result % !0){
@@ -39,6 +41,7 @@ fullKeypad.forEach(key => {
     );
 });
 
+// get result from numbers and operator
 function operate(){
 
     if (!number1 || !number2){
@@ -65,6 +68,7 @@ function operate(){
     }
 }
 
+// get input from the button
 function updateInput(input){
     if (input === 'UNDO'){
         if (number1.length > 0 && !operator){
@@ -117,6 +121,7 @@ function updateInput(input){
         }
     }
 
+// clear every variable
 function clear(){
     number1 = '';
     number2 = '';
@@ -125,18 +130,20 @@ function clear(){
     equal = 0;
 }
 
+// check if period already exists in the current number
 function checkForPeriod(){
-    if ((!operator && number1.includes('.')) || (number2.includes('.') && operator)){
+    if ((!operator && number1.indexOf('.')) !== -1 || (number2.includes('.') !== -1 && operator)){
         periodButton.disabled = true;
     }else{
         periodButton.disabled = false;
     }
 }
 
+// check if number is negative
 function isNegative(){
-    if ((!operator && number1.includes('-'))){
+    if (!operator && number1.indexOf('-') !== -1){
         return 'number1';
-    }else if (number2.includes('-') && operator){
+    }else if (number2.indexOf('-') !== -1 && operator){
         return 'number2';
     }else{
         return false;
