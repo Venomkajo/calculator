@@ -125,7 +125,6 @@ function clear(){
     number1 = '';
     number2 = '';
     operator = '';
-    operatorCopy = '';
 }
 
 // check if period already exists in the current number
