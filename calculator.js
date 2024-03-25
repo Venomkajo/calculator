@@ -30,6 +30,7 @@ fullKeypad.forEach(key => {
             }
             numberDisplay.innerText = result + '    ' + operator;
             number1 = result;
+            checkForPeriod();
         }else if (!operator){
             numberDisplay.innerText = operator + '  ' + number1;
         }else{
