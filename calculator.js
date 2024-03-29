@@ -13,32 +13,39 @@ const periodButton = document.getElementById('period');
 // for every button press do this
 fullKeypad.forEach(key => {
     key.addEventListener('click', function(){
-        updateInput(key.value);
-        checkForPeriod();
-        if (equal === 1){
-            equal = 0;
-            let result = operate();
-            if (!result && result !== 0){
-                return;
-            }
-            if (result % !0){
-                result = result.toFixed(2);
-            }
-            clear();
-            if (operatorCopy){
-                operator = operatorCopy;
-                operatorCopy = '';
-            }
-            numberDisplay.innerText = result + '    ' + operator;
-            number1 = result;
-            checkForPeriod();
-        }else if (!operator){
-            numberDisplay.innerText = operator + '  ' + number1;
-        }else{
-            numberDisplay.innerText = number1 + '   ' + operator + '  ' + number2;
-        }}
-    );
+        start(key.value);
+    });
 });
+
+document.addEventListener('keydown', function(event){
+    start(event.key);
+});
+
+function start(value){
+    updateInput(value);
+    checkForPeriod();
+    if (equal === 1){
+        equal = 0;
+        let result = operate();
+        if (!result && result !== 0){
+            return;
+        }
+        if (result % !0){
+            result = result.toFixed(2);
+        }
+        clear();
+        if (operatorCopy){
+            operator = operatorCopy;
+            operatorCopy = '';
+        }
+        numberDisplay.innerText = result + '    ' + operator;
+        number1 = result;
+        checkForPeriod();
+    }else if (!operator){
+        numberDisplay.innerText = operator + '  ' + number1;
+    }else{
+        numberDisplay.innerText = number1 + '   ' + operator + '  ' + number2;
+    }}
 
 // get result from numbers and operator
 function operate(){
