@@ -17,10 +17,14 @@ fullKeypad.forEach(key => {
     });
 });
 
+// handling keyboard presses
 document.addEventListener('keydown', function(event){
-    start(event.key);
-});
+    console.log(event.key);
+    if ((!isNaN(Number(event.key)) || ['/', '*', '+', '-', '=', 'Enter', 'Backspace'].includes(event.key)) && event.key !== ' ') {
+        start(event.key);
+}});
 
+// main program
 function start(value){
     updateInput(value);
     checkForPeriod();
@@ -45,7 +49,7 @@ function start(value){
         numberDisplay.innerText = operator + '  ' + number1;
     }else{
         numberDisplay.innerText = number1 + '   ' + operator + '  ' + number2;
-    }}
+    }};
 
 // get result from numbers and operator
 function operate(){
@@ -72,11 +76,14 @@ function operate(){
     else{
         return 'ERROR';
     }
-}
+};
 
 // get input from the button
 function updateInput(input){
-    if (input === 'UNDO'){
+    if (!input){
+        return;
+    }
+    else if (input === 'UNDO' || input === 'Backspace'){
         if (number1.length > 0 && !operator){
             number1 = number1.slice(0, -1);
         }else if (number2.length > 0 && operator){
@@ -100,12 +107,12 @@ function updateInput(input){
     else if ((input === '/' || input === '*' || input === '+' || input === '-') && number1){
         if (!operator && !number2){
             operator = input;
-        }else{
+        }else if (operatorCopy){
             equal = 1;
             operatorCopy = input;
         }
     }
-    else if (input === '='){
+    else if (input === '=' || input === 'Enter'){
         equal = 1;
     }
     else if (input === 'C'){
@@ -125,14 +132,14 @@ function updateInput(input){
     else if (!isNaN(Number(input))){
             number2 += input;
         }
-    }
+    };
 
 // clear every variable
 function clear(){
     number1 = '';
     number2 = '';
     operator = '';
-}
+};
 
 // check if period already exists in the current number
 function checkForPeriod(){
@@ -141,7 +148,7 @@ function checkForPeriod(){
     }else{
         periodButton.disabled = false;
     }
-}
+};
 
 // check if number is negative
 function isNegative(){
@@ -152,4 +159,4 @@ function isNegative(){
     }else{
         return false;
     }
-}
+};
